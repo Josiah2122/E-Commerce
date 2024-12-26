@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { updateQuantity, removeFromCart } from "../store";
+import "../styles/Home.css";
 
 const Checkout = () => {
   const cartItems = useSelector((state) => state.cart.items);
@@ -50,7 +51,13 @@ const Checkout = () => {
                       }
                     />
                   </td>
-                  <td>${(item.price * item.quantity).toFixed(2)}</td>
+                  <td>
+                    $
+                    {(item.price * item.quantity)?.toLocaleString("en-US", {
+                      maximumFractionDigits: 2,
+                      minimumFractionDigits: 2,
+                    })}
+                  </td>
                   <td>
                     <button
                       className="btn btn-danger"
@@ -64,7 +71,13 @@ const Checkout = () => {
             </tbody>
           </table>
           <div className="text-end">
-            <h4>Total: ${totalAmount.toFixed(2)}</h4>
+            <h4>
+              Total: $
+              {totalAmount?.toLocaleString("en-US", {
+                maximumFractionDigits: 2,
+                minimumFractionDigits: 2,
+              })}
+            </h4>
             <button className="btn btn-success">Proceed to Payment</button>
           </div>
         </div>

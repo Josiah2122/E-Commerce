@@ -16,3 +16,16 @@
   background-color: #f9f9f9;
   border-radius: 15px;
 }
+
+.table th,
+.table td {
+  vertical-align: middle;
+}
+.btn {
+  margin: 5px;
+}
+.text-end h4 {
+  margin-top: 20px;
+  font-weight: bold;
+  font-size: 1.5em;
+}
